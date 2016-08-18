@@ -1,4 +1,5 @@
-/// arrow function
+// ES6
+// arrow function
 var deliveryBoy = {
 	name:"John",
 
@@ -12,7 +13,7 @@ var deliveryBoy = {
 }
 deliveryBoy.receive();
 
-/// let
+// let
 var fs [];
 
 for (let i = 0; i<10; i++) {
@@ -24,4 +25,18 @@ for (let i = 0; i<10; i++) {
 fs.forEach(function (f) {
 	f();
 })
-///
+
+// default argument
+function greet(greeting,name = "John"){ //default argument
+	console.log(greeting + ", " + name);
+}
+greet("Hello", "Bill"); //Bill overwrites default fuunction
+
+//same with arrow function
+let greet = (greeting,name = "John") => console.log(greeting + ", " + name)
+greet("Hello", );
+
+function receive(comlete = () => console.log("complete")){  //default function
+	complete();
+}
+receive();
