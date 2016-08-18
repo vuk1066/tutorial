@@ -3,7 +3,7 @@
 var deliveryBoy = {
 	name:"John",
 
-	handleMessage: function (message, handle){
+	handleMessage: function (message, handler){
 		handler(message);
 	},
 
@@ -13,30 +13,21 @@ var deliveryBoy = {
 }
 deliveryBoy.receive();
 
-// let
-var fs [];
 
-for (let i = 0; i<10; i++) {
-	fs.push(function (){
-		console.log(i);
-	})
-}
 
-fs.forEach(function (f) {
-	f();
-})
 
-// default argument
-function greet(greeting,name = "John"){ //default argument
-	console.log(greeting + ", " + name);
-}
-greet("Hello", "Bill"); //Bill overwrites default fuunction
 
-//same with arrow function
-let greet = (greeting,name = "John") => console.log(greeting + ", " + name)
-greet("Hello", );
+// object enhancement
+var color = "red";
+var speed = 10;
 
-function receive(comlete = () => console.log("complete")){  //default function
-	complete();
-}
-receive();
+var car = {
+	color,
+	speed,
+	go(){
+		console.log("vroom")
+};
+console.log(car.color); //prints red
+console.log(car.speed); //prints 10
+car.go(); //prints vroom
+
