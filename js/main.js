@@ -13,23 +13,13 @@ var deliveryBoy = {
 }
 deliveryBoy.receive();
 
+// spread operator
+let first = [1, 2, 3];
 
+function addThreeThings(a,b,c){
+	let result = a + b + c;
+	console.log(result);
+}
 
-
-
-// object enhancement
-var color = "red";
-var speed = 10;
-var drive = "go";
-
-var car = {
-	color,
-	speed,
-	[drive]: function(){
-		console.log("vroom")
-	}
-};
-console.log(car.color); //prints red
-console.log(car.speed); //prints 10
-car.go(); //prints vroom
-
+addThreeThings (... first) // prints 6 
+						   // '...' is spreading the array out to its individual elements
