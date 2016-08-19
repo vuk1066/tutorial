@@ -20,12 +20,14 @@ deliveryBoy.receive();
 // object enhancement
 var color = "red";
 var speed = 10;
+var drive = "go";
 
 var car = {
 	color,
 	speed,
-	go(){
+	[drive]: function(){
 		console.log("vroom")
+	}
 };
 console.log(car.color); //prints red
 console.log(car.speed); //prints 10
