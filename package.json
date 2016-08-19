@@ -2,7 +2,7 @@
   "name": "tutorial",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,8 @@
   "dependencies": {
     "redux": "^3.5.2",
     "webpack": "^1.13.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2"
   }
 }
