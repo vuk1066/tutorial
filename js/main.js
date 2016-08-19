@@ -1,31 +1,40 @@
 // ES6
-// arrow function
-var deliveryBoy = {
-	name:"John",
+//destructuring assignment
 
-	handleMessage: function (message, handler){
-		handler(message);
+function generateObj(){
+	return {
+		color: "blue",
+		name: "Bob",
+		state: "New York",
+		position: "Forward"
+	}
+}
+
+var {name:firstName, state} = generateObj();
+console.log(firstName); //"Bob"  look up name then assigning to firstName
+console.log(state); //"New York"
+
+//second scenario
+
+var people = [
+	{
+		"firstName": "Clinton",
+		"lastName": "Ruiz",
+		"email": "att@gmail.com"
 	},
-
-	receive: function () {
-		this.handleMessage("Hello, ", message => console.log(message + this.name))
+	{
+		"firstName": "Skyler",
+		"lastName": "Madden",
+		"email": "boo@gmail.com"		
 	}
-}
-deliveryBoy.receive();
+]
 
-// string templates
+people.forEach(({firstName}) => console.log(firstName)) // Clinton Skyler
 
-var x = 1;
-var y = 2;
-var equation = `${x} + ${y} = ${x+y}` 
-console.log(equation);  //it will print 1 + 2 = 3
+var [,Tom] = people; //looks up the second object then names it Tom
 
-function tag(strings, ...values){
-	if(values[0] <20) {
-		values[1] = "awake";
-	}
-	return `${strings[0]}${values[0]}${strings[1]}${values[1]}`
+function logEmail({email}) {  //function that takes email
+	console.log(email);
 }
 
-var message = tag`It's ${new Date().getHours()} I'm ${""}`;
-console.log(message); //it will print "I'm awake" before 8pm
+logEmail(Tom) //take email function run on Tom object
