@@ -2,18 +2,19 @@
 //forEach => this can run asynchronously
 
 function getStockSymbols(stocks) {
-	var symbols = [];
-
-	stocks.forEach(function(stock) {
-		symbols.push(stock.symbol);
+	return stocks.map(function(stock) {
+		return stock.symbol;
 	})
-	/*for(counter = 0; counter < stocks.length; counter++) {
-		stock = stocks[counter];
-		symbols.push(stock.symbol);
-	}*/
-
-	return symbols;
 }
+
+Array.prototype.map = function(projection) { //explanation
+	var results = [];
+
+	this.forEach(function(item){
+		results.push(projection(item));
+	});
+	return results;
+};
 
 var symbols = getStockSymbols([
 	{
