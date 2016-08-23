@@ -18,7 +18,7 @@ function getStockOver(stocks, minPrice) { //has the same result as above functio
 	});
 }
 
-Array.prototype.filter = function(predicate) { //the filter method accepts a function called a predicate
+Array.prototype.filter = function(predicate) { //the filter method accepts a function called a predicate which returns a true or false
 	var results = [];
 
 	this.forEach(function(item) { //'this' is the Array because 'this' filters a method on Array
