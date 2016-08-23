@@ -1,5 +1,5 @@
 # tutorial
-This is a project to learn about coding.
+This is a project to keep track of learning steps in the world of coding
 
 1. Started with ES6 tutorial on https://egghead.io
 2. Installed node.js 
@@ -26,3 +26,7 @@ $ git commit -m "fixed untracked files"
 save .gitignore
 
 5. $ webpack --watch
+
+6. adding Reactive-Extensions / rx-node 
+$ npm install rx-node--save
+
