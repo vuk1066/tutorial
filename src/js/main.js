@@ -1,15 +1,16 @@
 // ES6 tutorial
-//for method
+//forEach => this can run asynchronously
 
 function getStockSymbols(stocks) {
-	var symbols = [],
-		counter,
-		stock
+	var symbols = [];
 
-	for(counter = 0; counter < stocks.length; counter++) {
+	stocks.forEach(function(stock) {
+		symbols.push(stock.symbol);
+	})
+	/*for(counter = 0; counter < stocks.length; counter++) {
 		stock = stocks[counter];
 		symbols.push(stock.symbol);
-	}
+	}*/
 
 	return symbols;
 }
