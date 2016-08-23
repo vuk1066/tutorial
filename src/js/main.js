@@ -1,36 +1,7 @@
 // ES6 tutorial
-//forEach => this can run asynchronously
+//forEach, map, filter
 
-/*function getStockOver(stocks, minPrice) {
-	var results = [];
-
-	stocks.forEach(function(stock) {
-		if (stock.price >= minPrice) {
-			results.push(stock);
-		} 
-	});
-	return results;
-}*/
-
-function getStockOver(stocks, minPrice) { //has the same result as above function
-	return stocks.filter(function(stock){
-		return stock.price >= minPrice;
-	});
-}
-
-Array.prototype.filter = function(predicate) { //the filter method accepts a function called a predicate which returns a true or false
-	var results = [];
-
-	this.forEach(function(item) { //'this' is the Array because 'this' filters a method on Array
-		if (predicate(item)) { //apply the predicate() to the item,if it returns true, it will be added to results
-			results.push(item);
-		}
-	});
-	return results;
-};
-
-var expensiveStock = getStockOver(
-	[
+var stocks = [
 		{
 			symbol: "XGC",
 			price: 240.00,
@@ -46,8 +17,18 @@ var expensiveStock = getStockOver(
 			price: 140.20,
 			volume: 1001
 		}
-	],
-	150.00
+];
+
+var filteredStockSymbols =
+	stocks.
+		filter(function(stock) {
+			return stock.price >= 150.00
+		}).
+		map(function(stock) {
+			return stock.symbol;
+		}
 );
 
-console.log(JSON.stringify(expensiveStock));
+filteredStockSymbols.forEach(function(symbol) {
+	console.log(symbol);
+});
