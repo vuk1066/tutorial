@@ -30,3 +30,7 @@ save .gitignore
 6. adding Reactive-Extensions / rx-node 
 $ npm install rx-node--save
 
+7. React 
+$ npm install react react-dom --save
+$ npm install babel-preset-react --save
+$ npm install babel webpack-dev-server -g
