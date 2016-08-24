@@ -1,39 +1,24 @@
 // ES6 tutorial
-//concatAll method => flatens 2 or more dimensional arrays
-/* use functions to flatten nested data structurs(arrays in arrays) so they can be
-further transformed */
+// introducing Observable 
+/* An Observable is just like an array, 
+except the difference is with an array, all the data is stored in memory, 
+whereas with an Observable, no data is stored in memory, 
+and the items arrive over time, asynchronously */
 
-var exchanges = [
-		[
-			{ symbol: "XGC", price: 240.00, volume: 2342},
-			{ symbol: "AAD", price: 30.00, volume: 12}
-		],
-		[
-			{ symbol: "TFT", price: 140.00, volume: 1001},
-			{ symbol: "AAJ", price: 330.00, volume: 10000}
-		]
-];
+//whatever...this does not work :pppp
+//err: Uncaught TypeError: Cannot read property 'defineProperty' of unde
 
-exchanges.forEach(function(exchange) {
-	exchange.forEach(function(stock) {
-		console.log(JSON.stringify(stock));
-	});
-});
+import Rx from 'rxjs-es/Rx';
 
-Array.prototype.concatAll = function() {
-	var results = [];
 
-	this.forEach(function(subArray) {
-		subArray.forEach(function(item) {
-			results.push(item);
-		});
-	});
-	return results;
+import {sumTwo} from "./modules/math";
+
+var dod = Rx.Observable;
+
+var button = document.getElementById('button');
+
+var handler = function(e) {
+	alert('clicked');
 };
 
-var stocks = exchanges.concatAll(); //same as above but using concatAll
-stocks.forEach(function(stock) {
-	console.log(JSON.stringify(stock));
-});
-
-
+button.addEventListener('click', handler);
