@@ -1,0 +1,4 @@
+/* When one component renders another component, 
+this is what React refers to as the owner-ownee relationship, 
+where the parent component is also called a composite component */
+

@@ -3,10 +3,8 @@ import React from 'react';
 class App extends React.Component {
 	constructor(){
 		super();
-		this.state = { 
-			txt: 'this is the state',
-			cat: 0
-		}
+		this.state = { txt: ''}
+		this.update = this.update.bind(this)
 	}
 	update(e){
 		this.setState({txt: e.target.value})
@@ -14,12 +12,22 @@ class App extends React.Component {
 	render(){
 		return (
 			<div>
-			<input type="text" 
-				onChange={this.update.bind(this)} />
-			<h1> {this.state.txt} </h1>
+				<Widget txt={this.state.txt} update={this.update} />
 			</div>
 		);
 	}
 }
 
+const Widget = (props) => {
+	return (
+			<div>
+				<input type="text" 
+					onChange={props.update} />
+				<h1> {props.txt} </h1>
+			</div>
+		);
+}
+
 export default App
+
+
