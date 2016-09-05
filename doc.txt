@@ -2,3 +2,9 @@
 this is what React refers to as the owner-ownee relationship, 
 where the parent component is also called a composite component */
 
+/* Refs are a way to reference an instance of 
+a component from within our React application.
+Refs don't work work with stateless function components*/
+
+import ReactDOM from 'react-dom';
+=> enables you to reach out to the DOM
