@@ -8,3 +8,5 @@ Refs don't work work with stateless function components*/
 
 import ReactDOM from 'react-dom';
 => enables you to reach out to the DOM
+
+use this.props.children to acces innerHTML or nested components of another component
