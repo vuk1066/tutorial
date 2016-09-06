@@ -18,3 +18,5 @@ Class component v. Stateless function -> a class can have state
 
 {return (<h1> Hello </h1>);} -> jsx
 {return React.createElement('h1',null,'Hello')} -> js
+
+mounting and unmounting the component -> when a component is added or removed from the DOM
