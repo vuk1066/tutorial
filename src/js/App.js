@@ -2,15 +2,17 @@ import React from 'react';
 
 class App extends React.Component {
 	render(){
-		return
+		return (
 			<Button><Heart/> React </Button> 
+			);
 	}
 }
  
 class Button extends React.Component {
 	render(){
-		return
+		return (
 			<button>{this.props.children}</button>
+		);
 	}
 }
 
