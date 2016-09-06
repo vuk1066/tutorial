@@ -7,6 +7,14 @@ a component from within our React application.
 Refs don't work work with stateless function components*/
 
 import ReactDOM from 'react-dom';
-=> enables you to reach out to the DOM
+-> enables you to reach out to the DOM
 
-use this.props.children to acces innerHTML or nested components of another component
+ use -> this.props.children to acces innerHTML or nested components of another component
+
+Shader -> small program written in a C like language called Open GLShaderLanguage -> GLSL
+Props -> meant to be passed into our components as static values or methods
+State -> is a collection of values that's meant to be managed by our components itself
+Class component v. Stateless function -> a class can have state
+
+{return (<h1> Hello </h1>);} -> jsx
+{return React.createElement('h1',null,'Hello')} -> js
