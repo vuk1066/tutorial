@@ -4,53 +4,71 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
 	constructor(){
 		super();
+<<<<<<< HEAD
+		this.state = {val:0};
+		this.update = this.update.bind(this);
+=======
 		this.state = { 
-			red: 0,
-			green: 0,
-			blue: 0
+			txt: 'this is the state',
+			cat: 0
 		}
-		this.update = this.update.bind(this)
+>>>>>>> parent of 5430a99... React owner ownee relationship
 	}
-	update(e){
-		this.setState({
-			red: ReactDOM.findDOMNode(this.refs.red.refs.inp).value,
-			green: ReactDOM.findDOMNode(this.refs.green.refs.inp).value,
-			blue: ReactDOM.findDOMNode(this.refs.blue.refs.inp).value
-		})
+	update() {
+		this.setState({val:this.state.val + 1})
+	}
+	componentWillMount() {
+		console.log('mounting')
 	}
 	render(){
-		return (
-			<div>
-				{this.state.txt}
-				<hr />
-				<Slider ref="red" update={this.update} />
-				{this.state.red}
-				<br />
-				<Slider ref="green" update={this.update} />
-				{this.state.green}
-				<br />
-				<Slider ref="blue" update={this.update} />
-				{this.state.blue}
-				<br />
-			</div>
-		);
+<<<<<<< HEAD
+		console.log('rendering!')
+		return <button onClick={this.update}>{this.state.val}</button>
 	}
-}
- 
-class Slider extends React.Component {
-	render(){
+	componentDidMount() {
+		console.log('mounted')
+	}
+	componentWillUnmount() {
+		console.log('buy')
+=======
 		return (
 			<div>
-				<input ref="inp" type="range" 
-					min="0"
-					max="255"
-					onChange={this.props.update} />
+			<input type="text" 
+				onChange={this.update.bind(this)} />
+			<h1> {this.state.txt} </h1>
 			</div>
 		);
+>>>>>>> parent of 5430a99... React owner ownee relationship
+	}
+
+<<<<<<< HEAD
+	class Wrapper extends React.Component {
+		constructor(){
+			super();
+		}
+		mount(){
+			ReactDOM.render(<App />, document.getElementById('a'))
+		}
+		unmount(){
+			ReactDOM.unmountComponentAtNode(document.getElementById('a'))
+		}
+		render(){
+			return (
+				<div>
+					<button onClick={this.mount.bind(this)}>Mount</button>
+					<button onClick={this.unmount.bind(this)}>Unmount</button>
+					<div id="a"></div>
+				</div>
+			);
+		}
+
 	}
 }
 
+export default Wrapper
+
+
+
+=======
 export default App
-
-
-
+>>>>>>> parent of 5430a99... React owner ownee relationship
