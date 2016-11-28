@@ -15,6 +15,7 @@ Shader -> small program written in a C like language called Open GLShaderLanguag
 Props -> meant to be passed into our components as static values or methods
 State -> is a collection of values that's meant to be managed by our components itself
 Class component v. Stateless function -> a class can have state
+Refs don't work with stateless function components. (=> use class)
 
 {return (<h1> Hello </h1>);} -> jsx
 {return React.createElement('h1',null,'Hello')} -> js
