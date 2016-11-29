@@ -4,34 +4,71 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
 	constructor(){
 		super();
-		this.state = {increasing: false}
-	}
+		this.state = { 
+	      red: 0, 
+	      blue: 0, 
+	      green: 0 
+	    } 
+	    this.update = this.update.bind(this) 
+	  } 
 
-	update(){
-		ReactDOM.render(
-			<App val={this.props.val+1} />,
-				document.getElementById('app'))
-	}
-	componentWillReceiveProps(nextProps){
-		this.setState({increasing: nextProps.val > this.props.val})	
-	}
-	shouldComponentUpdate(nextProps, nextState) {
-		return nextProps.val % 5 === 0;
-	}
-	render(){
-		console.log(this.state.increasing)
-		return (
-			<button onClick={this.update.bind(this)}>
-				{this.props.val}
-			</button>
-		)
-	}
-
-	componentDidUpdate(prevProps, prevState) {
-		console.log(`prevProps: ${prevProps.val}`)
-	}
+	  update(e){ 
+	    this.setState({ 
+	      red: ReactDOM.findDOMNode(this.refs.red.refs.inp).value
+	    }) 
+	  } 
+	    render(){
+	    return ( 
+	        <div> 
+	          <NumInput 
+		          ref="red"
+		          min={0}
+		          max={255}
+		          step={1}
+		          val={+this.state.red}
+		          //type="number"
+		          label="Red"
+		          update={this.update} />   
+	        </div> 
+        );
+    }  
+}
+class NumInput extends React.Component { 
+  render(){
+  	let label = this.props.label !== '' ? 
+  	<label> {this.props.label} - {this.props.val}</label> : ''
+    return (
+    	<div>
+        <input ref = "inp"
+        	type = {this.props.type}
+        	min = {this.props.min}
+        	max = {this.props.max}
+        	step = {this.props.step}
+        	defaultValue = {this.props.val}
+        	onChange = {this.props.update} />
+        	{label}
+        </div>
+    );
+  }
 }
 
-App.defaultProps = {val: 0}
+NumInput.propTypes = {
+	min: React.PropTypes.number,
+	max: React.PropTypes.number,
+	step: React.PropTypes.number,
+	val: React.PropTypes.number,
+	label: React.PropTypes.string,
+	update: React.PropTypes.func.isRequired,
+	type: React.PropTypes.oneOf(['number','range'])
+}
+
+NumInput.defaultProps = {
+	min: 0,
+	max: 0,
+	step: 1,
+	val: 0,
+	label: '',
+	type: 'range'
+}
 
 export default App
