@@ -23,3 +23,10 @@ Refs don't work with stateless function components. (=> use class)
 mounting and unmounting the component -> when a component is added or removed from the DOM
 
 When we want to access the innerHTML or nested components of another component, we can use this.props.children in React. This is very similar to Angular 1's transclusion or Ember's yield or Web Component's content.
+
+componentWillMount()
+componentDidMount()
+componentWillUnmount()
+componentWillReceiveProps()
+shouldComponentUpdate() => does not prevent state change only prevents re-rendering
+componentDidUpdate()
