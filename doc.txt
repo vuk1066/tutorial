@@ -30,3 +30,24 @@ componentWillUnmount()
 componentWillReceiveProps()
 shouldComponentUpdate() => does not prevent state change only prevents re-rendering
 componentDidUpdate()
+
+///explaining *super()*  JS6
+Calling super() is necessary only if you need to have a constructor.You don't have to call super() for every react component you create. However, if there is a constructor in your code, then you MUST call super:
+
+class MyClass extends React.component {
+    render(){
+        return <div>Hello { this.props.world }</div>;
+    }
+}
+
+class MyClass extends React.component{
+    constructor(props){
+        super();
+        console.log(this.props); // this.props is undefined
+
+    }
+}
+
+Call super(props) only if you want to access this.props inside the constructor. React automatically set it for you if you want to access it anywhere else.
+
+/////
