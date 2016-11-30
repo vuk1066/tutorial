@@ -1,0 +1,53 @@
+/* When one component renders another component, 
+this is what React refers to as the owner-ownee relationship, 
+where the parent component is also called a composite component */
+
+/* Refs are a way to reference an instance of 
+a component from within our React application.
+Refs don't work work with stateless function components*/
+
+import ReactDOM from 'react-dom';
+-> enables you to reach out to the DOM
+
+ use -> this.props.children to acces innerHTML or nested components of another component
+
+Shader -> small program written in a C like language called Open GLShaderLanguage -> GLSL
+Props -> meant to be passed into our components as static values or methods
+State -> is a collection of values that's meant to be managed by our components itself
+Class component v. Stateless function -> a class can have state
+Refs don't work with stateless function components. (=> use class)
+
+{return (<h1> Hello </h1>);} -> jsx
+{return React.createElement('h1',null,'Hello')} -> js
+
+mounting and unmounting the component -> when a component is added or removed from the DOM
+
+When we want to access the innerHTML or nested components of another component, we can use this.props.children in React. This is very similar to Angular 1's transclusion or Ember's yield or Web Component's content.
+
+componentWillMount()
+componentDidMount()
+componentWillUnmount()
+componentWillReceiveProps()
+shouldComponentUpdate() => does not prevent state change only prevents re-rendering
+componentDidUpdate()
+
+///explaining *super()*  JS6
+Calling super() is necessary only if you need to have a constructor.You don't have to call super() for every react component you create. However, if there is a constructor in your code, then you MUST call super:
+
+class MyClass extends React.component {
+    render(){
+        return <div>Hello { this.props.world }</div>;
+    }
+}
+
+class MyClass extends React.component{
+    constructor(props){
+        super();
+        console.log(this.props); // this.props is undefined
+
+    }
+}
+
+Call super(props) only if you want to access this.props inside the constructor. React automatically set it for you if you want to access it anywhere else.
+
+/////

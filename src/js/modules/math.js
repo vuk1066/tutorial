@@ -1,8 +1,7 @@
-export function sumTwo(a,b) {
-	return a + b;
+export function digital_root(n) {
+	
+	var result = digital_root(54567);
+	document.getElementById("pop").innerHTML = result;
 }
 
-export function sumThree(a, b, c) {
-	return a + b + c;
 
-}
