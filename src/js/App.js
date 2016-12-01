@@ -10,17 +10,31 @@ class App extends React.Component {
 			.then( response => response.json() )
 			.then( ({results: items}) => this.setState({items}))
 	}
+	filter(e){
+		this.setState({filter: e.target.value})
+	}
 	render(){
-		let items = this.state.items
+		let items = this.state.items;
+		if(this.state.filter){
+			items = items.filter( item => 
+			item.name.toLowerCase()
+			.includes(this.state.filter.toLowerCase()))
+		}
 		return (
 			<div>
+				<input type="text" onChange={this.filter.bind(this)} />
 				{items.map(item => 
-					<Person key={item.name} /> )}
+					<Person2 key={item.name} person={item} /> )}
 			</div>
 		)
 	}
 }
 
-const Person = (props) => <h4>{props.person.name}</h4>
-
+const Person = props => <h4>{props.person.name}</h4>
+const Person2 = ({person}) => <h4>{person.name}</h4>
 export default App
+
+let a = {k: 1}
+console.log(a.k)
+let {k} = a
+console.log(k)
