@@ -31,6 +31,9 @@ componentWillReceiveProps()
 shouldComponentUpdate() => does not prevent state change only prevents re-rendering
 componentDidUpdate()
 
+The purpose of a higher order component is to share common functionality or information between multiple components. The sole function of a higher order component is to take in a component and return a new component. 
+
+
 ///explaining *super()*  JS6
 Calling super() is necessary only if you need to have a constructor.You don't have to call super() for every react component you create. However, if there is a constructor in your code, then you MUST call super:
 
