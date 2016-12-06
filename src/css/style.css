@@ -10,7 +10,7 @@ header {
 	overflow: auto;
 	background-color: pink;
 	color: red;
-	font-size: 1.5em;
+	font-size: 1em;
 }
 
 .container {
@@ -25,7 +25,7 @@ pre {
 pre, textarea {
 	width: 50%;
 	font-family: monospace;
-	font-size: 1.5em;
+	font-size: 1em;
 	margin: 0;
 	padding: 10px;
 	color: #222;
