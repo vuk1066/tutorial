@@ -91,4 +91,11 @@ The includes() method determines whether one string may be found within another 
 *syntax:
 str.includes(searchString[, position])
 The position in this string at which to begin searching for searchString; defaults to 0
+////
 
+props.children isn't the actual children.
+
+It's a descriptor of the children, you don't actually have anything to change. You can't change the props, you can't add any functionality, you can't do anything with it. You can only read from it. In order to modify these, we actually need to create new elements. We can do that with react.cloneElement.
+////
+
+All custom React components would start with a capital letter

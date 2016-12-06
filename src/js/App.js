@@ -3,22 +3,36 @@ import React from 'react';
 class App extends React.Component {
 	render(){
 		return (
-			<Parent>
-				<div className="childB"></div>
-				<div className="childC"></div>
-			</Parent>
+			<Buttons>
+				<button value="A">A</button>
+				<button value="B">B</button>
+				<button value="C">C</button>
+			</Buttons>
 		)
 	}
 }
 
-class Parent extends React.Component {
+class Buttons extends React.Component {
+	constructor(){
+		super();
+		this.state = {selected : 'None'}
+	}
+	selectItem(selected){
+		this.setState({selected})
+	}
 	render(){
-		//let items = this.props.children.map(child => child)
-		//let items = React.Children.map(this.props.children, child => child)
-		//let items = React.Children.toArray(this.props.children)
-		let items = React.Children.forEach(this.props.children, child => console.log(child.props.className))
-		console.log(items)
-		return null
+		let fn = child =>
+			React.cloneElement(child, {
+				onClick: this.selectItem.bind(this, child.props.value)
+			})
+
+		let items = React.Children.map(this.props.children, fn);
+		return (
+			<div>
+				<h2> You have Selected: {this.state.selected}</h2>
+				{items}
+			</div>
+			)
 	}
 }
 
