@@ -99,3 +99,13 @@ It's a descriptor of the children, you don't actually have anything to change. Y
 ////
 
 All custom React components would start with a capital letter
+
+///Redux /////
+The first principle of Redux, which is that, everything that changes in your application, including the data and the UI state, is contained in a single object, we call the state or the state tree.
+
+The second principle of Redux is that the state tree is read only. You cannot modify or write to it. Instead, anytime you want to change the state, you need to dispatch an action.
+An action is a plain JavaScript object describing the change. Just like the state is the minimal representation of the data in your app, the action is the minimal representation of the change to that data.
+The structure of the action object is up to you. The only requirement is that it has a type property, which is not undefined. We suggest using strings, because they are serializable.
+
+The pure functions are the functions whose returned value depends solely on the values of their arguments. You can be confident that if you call the pure function with the same set of arguments, you're going to get the same returned value. They are predictable.
+Also, pure functions do not modify the values passed to them.
