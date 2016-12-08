@@ -109,3 +109,7 @@ The structure of the action object is up to you. The only requirement is that it
 
 The pure functions are the functions whose returned value depends solely on the values of their arguments. You can be confident that if you call the pure function with the same set of arguments, you're going to get the same returned value. They are predictable.
 Also, pure functions do not modify the values passed to them.
+
+///Node///
+ Node is an event loop processor. Meaning, it just runs through in a loop looking for events that it can execute.
+  All that a callback is a parameter to a function that happens to be a function itself.
