@@ -57,3 +57,6 @@ $ DEBUG=myapp:* npm start
 
 On Windows, use this command:
 > set DEBUG=myapp:* & npm start
+
+10. Install React Router
+$npm install --save react-router
