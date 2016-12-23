@@ -50,14 +50,5 @@ var people = [
   }
 ]
 
-people.forEach(({firstName}) => console.log(firstName))
-
-
-var [,Skyler] = people;
-
-function logEmail({email}){
-  console.log(email);
-}
-
-logEmail(Skyler);
-
+var log = Array.from(people, ({ email }) => email)
+console.log(log);
