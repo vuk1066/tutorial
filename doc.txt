@@ -15,8 +15,101 @@ Shader -> small program written in a C like language called Open GLShaderLanguag
 Props -> meant to be passed into our components as static values or methods
 State -> is a collection of values that's meant to be managed by our components itself
 Class component v. Stateless function -> a class can have state
+Refs don't work with stateless function components. (=> use class)
 
 {return (<h1> Hello </h1>);} -> jsx
 {return React.createElement('h1',null,'Hello')} -> js
 
 mounting and unmounting the component -> when a component is added or removed from the DOM
+
+When we want to access the innerHTML or nested components of another component, we can use this.props.children in React. This is very similar to Angular 1's transclusion or Ember's yield or Web Component's content.
+
+componentWillMount()
+componentDidMount()
+componentWillUnmount()
+componentWillReceiveProps()
+shouldComponentUpdate() => does not prevent state change only prevents re-rendering
+componentDidUpdate()
+
+The purpose of a higher order component is to share common functionality or information between multiple components. The sole function of a higher order component is to take in a component and return a new component. 
+
+
+///explaining *super()*  JS6
+Calling super() is necessary only if you need to have a constructor.You don't have to call super() for every react component you create. However, if there is a constructor in your code, then you MUST call super:
+
+class MyClass extends React.component {
+    render(){
+        return <div>Hello { this.props.world }</div>;
+    }
+}
+
+class MyClass extends React.component{
+    constructor(props){
+        super();
+        console.log(this.props); // this.props is undefined
+
+    }
+}
+
+Call super(props) only if you want to access this.props inside the constructor. React automatically set it for you if you want to access it anywhere else.
+
+/////
+
+The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses. It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.
+/////
+
+Arrow functions are always anonymous. These function expressions are best suited for non-method functions and they can not be used as constructors.
+
+*Basic syntax:
+	(param1, param2, …, paramN) => { statements }
+	(param1, param2, …, paramN) => expression
+	// equivalent to: (param1, param2, …, paramN) => { return expression; }
+
+	// Parentheses are optional when there's only one parameter:
+	(singleParam) => { statements }
+	singleParam => { statements }
+
+	// A function with no parameters requires parentheses:
+	() => { statements }
+	() => expression // equivalent to: () => { return expression; }
+
+*Advanced Syntax
+
+// Parenthesize the body to return an object literal expression:
+params => ({foo: bar})
+
+// Rest parameters and default parameters are supported
+(param1, param2, ...rest) => { statements }
+(param1 = defaultValue1, param2, …, paramN = defaultValueN) => { statements }
+
+// Destructuring within the parameter list is also supported
+var f = ([a, b] = [1, 2], {x: c} = {x: a + b}) => a + b + c;
+f();  // 6
+
+//////
+The includes() method determines whether one string may be found within another string, returning true or false as appropriate.
+*syntax:
+str.includes(searchString[, position])
+The position in this string at which to begin searching for searchString; defaults to 0
+////
+
+props.children isn't the actual children.
+
+It's a descriptor of the children, you don't actually have anything to change. You can't change the props, you can't add any functionality, you can't do anything with it. You can only read from it. In order to modify these, we actually need to create new elements. We can do that with react.cloneElement.
+////
+
+All custom React components would start with a capital letter
+
+///Redux /////
+The first principle of Redux, which is that, everything that changes in your application, including the data and the UI state, is contained in a single object, we call the state or the state tree.
+
+The second principle of Redux is that the state tree is read only. You cannot modify or write to it. Instead, anytime you want to change the state, you need to dispatch an action.
+An action is a plain JavaScript object describing the change. Just like the state is the minimal representation of the data in your app, the action is the minimal representation of the change to that data.
+The structure of the action object is up to you. The only requirement is that it has a type property, which is not undefined. We suggest using strings, because they are serializable.
+
+The pure functions are the functions whose returned value depends solely on the values of their arguments. You can be confident that if you call the pure function with the same set of arguments, you're going to get the same returned value. They are predictable.
+Also, pure functions do not modify the values passed to them.
+
+///Node///
+ Node is an event loop processor. Meaning, it just runs through in a loop looking for events that it can execute.
+  All that a callback is a parameter to a function that happens to be a function itself.
