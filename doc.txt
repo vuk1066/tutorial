@@ -115,3 +115,6 @@ Also, pure functions do not modify the values passed to them.
 ///Node///
  Node is an event loop processor. Meaning, it just runs through in a loop looking for events that it can execute.
   All that a callback is a parameter to a function that happens to be a function itself.
+
+  ///ReactRouter
+  use hasHistory for development. use browserHistroy if your are running app on server (removes # from URL)
