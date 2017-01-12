@@ -1,24 +1,29 @@
 import React from 'react';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
 
-const Outer = (props) => <div><h1>Our Site</h1><Links />{props.children}</div>;
-const About = () => <div><h1>About</h1></div>;
-const Contact = () => <div><h1>Contact</h1></div>;
+const Home = () => <div><h1>Home</h1></div>
+const HomeBody = () => <div><p>This is the home body</p></div>
+
+const Other = () => <div><h1>Other</h1></div>
+const OtherBody = () => <div><p>This is the other body</p></div> 
 
 const Links = () =>
     <nav>
       <Link to="/">Home </Link>
-      <Link to="/about">About </Link>
-      <Link to="/contact">Contact </Link>
-    </nav> 
+      <Link to="/other">Other </Link>
+    </nav>
 
+const Container = (props) =>
+  <div><Links /> {props.header}{props.body} </div>
 
 const App = () => {
   return (
     <Router history={ browserHistory }>
-      <Route path="/" component={Outer}>
-        <IndexRoute component={About}></IndexRoute>
-        <Route path="contact" component={Contact}></Route>
+      <Route path="/" component={Container}>
+        <IndexRoute components={ { header: Home, body: HomeBody } }>
+        </IndexRoute>
+        <Route path="/other" components={ { header: Other, body: OtherBody } }>
+        </Route>
       </Route>
     </Router>
   )

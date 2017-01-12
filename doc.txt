@@ -118,4 +118,8 @@ Also, pure functions do not modify the values passed to them.
 
   ///ReactRouter
   use hasHistory for development. use browserHistroy if your are running app on server (removes # from URL)
-   IndexRoute allows us to render a default component when no other route is present. 
+   IndexRoute allows us to render a default component when no other route is present.
+   In React Router, a route parameter allows us to pass in a portion of our route path as a property of our component that we're going to render at that path. 
+   /(:message) => argument is optional due to being wrapped in parentheses.
+
+   We can render multiple components at a single route using something in React Router called named components.
