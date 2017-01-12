@@ -118,3 +118,4 @@ Also, pure functions do not modify the values passed to them.
 
   ///ReactRouter
   use hasHistory for development. use browserHistroy if your are running app on server (removes # from URL)
+   IndexRoute allows us to render a default component when no other route is present. 
