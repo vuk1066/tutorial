@@ -123,3 +123,5 @@ Also, pure functions do not modify the values passed to them.
    /(:message) => argument is optional due to being wrapped in parentheses.
 
    We can render multiple components at a single route using something in React Router called named components.
+
+   Context API=> to pass data through the component tree without having to pass the props down manually at every level. Try not use use it! Redux is more stable
