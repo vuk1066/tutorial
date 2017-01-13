@@ -6,7 +6,7 @@ const Main = (props) => (
         <nav className="navbar navbar-default" role="navigation">
           <div className="col-sm-7 col-sm-offset-2">
             <Link to="/"> Home</Link>
-            <Link to="/profile"> Profile </Link> 
+            <Link to="/"> Profile </Link> 
           </div>
         </nav>
         <div className="container">
