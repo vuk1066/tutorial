@@ -1,8 +1,6 @@
 import React from 'react';
 import { Router, Route, Link, Redirect, browserHistory } from 'react-router';
-
-const Home = () => <div><h1>Home</h1><Links /></div>; 
-const About = () => <div><h1>About</h1><Links /></div>; 
+import AppRouter from './config/AppRouter';
 
 const Links = () =>
    <nav> 
@@ -13,10 +11,7 @@ const Links = () =>
 
 const App = () => { 
   return ( 
-    <Router history={ browserHistory }> 
-      <Route path="/" component={Home}></Route> 
-      <Route path="/about" component={About}></Route> 
-    </Router> 
+    <AppRouter />
   ) 
 }
 
