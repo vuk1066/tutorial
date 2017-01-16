@@ -125,3 +125,21 @@ Also, pure functions do not modify the values passed to them.
    We can render multiple components at a single route using something in React Router called named components.
 
    Context API=> to pass data through the component tree without having to pass the props down manually at every level. Try not use use it! Redux is more stable
+
+  /// setting initial state ES6 v. ES5
+
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { /* initial state */ };
+  }
+}
+
+is equivalent to
+
+var MyComponent = React.createClass({
+  getInitialState() {
+    return { /* initial state */ };
+  },
+});
+
