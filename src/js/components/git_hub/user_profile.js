@@ -6,7 +6,7 @@ class UserProfile extends React.Component {
 	  <div>
 		<h2>USER PROFILE</h2>
 		<p>Username: {this.props.username}</p>
-		<p>Name: {this.props.bio.name}</p>
+		
       </div>
     );
 	}
