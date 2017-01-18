@@ -11,6 +11,8 @@ import ReactDOM from 'react-dom';
 
  use -> this.props.children to acces innerHTML or nested components of another component
 
+ use render () parentheses otherwise the component has to start on the same line as return
+
 Shader -> small program written in a C like language called Open GLShaderLanguage -> GLSL
 Props -> meant to be passed into our components as static values or methods
 State -> is a collection of values that's meant to be managed by our components itself
@@ -30,8 +32,6 @@ componentWillUnmount()
 componentWillReceiveProps()
 shouldComponentUpdate() => does not prevent state change only prevents re-rendering
 componentDidUpdate()
-
-IndexRoute
 
 The purpose of a higher order component is to share common functionality or information between multiple components. The sole function of a higher order component is to take in a component and return a new component. 
 
@@ -142,4 +142,8 @@ var MyComponent = React.createClass({
     return { /* initial state */ };
   },
 });
+
+////ReactFire
+ReactJS is a framework for building large, complex user interfaces. Firebase complements it perfectly by providing an easy-to-use, realtime data source for populating the state of React components. With ReactFire, it only takes a few lines of JavaScript to integrate Firebase data into React apps via the ReactFireMixin.
+
 
