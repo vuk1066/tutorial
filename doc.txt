@@ -27,6 +27,8 @@ mounting and unmounting the component -> when a component is added or removed fr
 When we want to access the innerHTML or nested components of another component, we can use this.props.children in React. This is very similar to Angular 1's transclusion or Ember's yield or Web Component's content.
 
 componentWillMount()
+this is going to fire off right before it's actually mounted into the DOM, and it just lets us know that it's guaranteed to make it into the DOM.
+
 componentDidMount()
 componentWillUnmount()
 componentWillReceiveProps()
@@ -98,6 +100,23 @@ The position in this string at which to begin searching for searchString; defaul
 props.children isn't the actual children.
 
 It's a descriptor of the children, you don't actually have anything to change. You can't change the props, you can't add any functionality, you can't do anything with it. You can only read from it. In order to modify these, we actually need to create new elements. We can do that with react.cloneElement.
+
+iterating through this.props.children:
+
+more than one:
+let itmes = this.props.children.map(child => child)
+
+only one child:
+let item = React.Children.map(this.props.children, child => child)
+
+or something which works with both:
+let items = React.Children.toArray(this.props.children)
+
+some extra:
+let itemsProps = React.Children.forEach(this.props.children, child => console.log(child.props.className))
+
+
+
 ////
 
 All custom React components would start with a capital letter
