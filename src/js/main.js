@@ -1,4 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-ReactDOM.render( <App />, document.getElementById( 'app' ) );
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Counter from './components/Counter'
+import Redux from 'redux'
+import { createStore } from 'redux'
+
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+
+const counter = (state = 0, action) => { //this is the reducer
+  switch (action.type) {
+    case INCREMENT:
+      return state + 1;
+    case DECREMENT:
+      return state - 1;
+    default:
+      return state;
+  }
+} 
+
+const store = createStore(counter);
+
+const render = () => {
+  ReactDOM.render( 
+    <Counter value={ store.getState() }
+             onIncrement={() =>
+               store.dispatch({ type: INCREMENT })
+             }
+             onDecrement={() =>
+              store.dispatch({ type: DECREMENT })
+             }/>, 
+  document.getElementById( 'app' ) 
+  );
+};
+
+store.subscribe(render);
+render();
+
+
+
+
+

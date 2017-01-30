@@ -131,6 +131,8 @@ The structure of the action object is up to you. The only requirement is that it
 The pure functions are the functions whose returned value depends solely on the values of their arguments. You can be confident that if you call the pure function with the same set of arguments, you're going to get the same returned value. They are predictable.
 Also, pure functions do not modify the values passed to them.
 
+The third and the last principle of Redux. To describe state mutations, you have to write a function that takes the previous state of the app, the action being dispatched, and returns the next state of the app. This function has to be pure. This function is called the Reducer.
+
 ///Node///
  Node is an event loop processor. Meaning, it just runs through in a loop looking for events that it can execute.
   All that a callback is a parameter to a function that happens to be a function itself.
@@ -162,7 +164,5 @@ var MyComponent = React.createClass({
   },
 });
 
-////ReactFire
-ReactJS is a framework for building large, complex user interfaces. Firebase complements it perfectly by providing an easy-to-use, realtime data source for populating the state of React components. With ReactFire, it only takes a few lines of JavaScript to integrate Firebase data into React apps via the ReactFireMixin.
 
 
