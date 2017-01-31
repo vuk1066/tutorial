@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Counter from './components/Counter'
+//import Counter from './components/Counter'
 import Redux from 'redux'
 import { createStore } from 'redux'
 
@@ -20,6 +20,14 @@ const counter = (state = 0, action) => { //this is the reducer
 
 const store = createStore(counter);
 
+const Counter = ({value, onIncrement, onDecrement}) =>
+  (<div>
+    <h1>{value}</h1>
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
+   </div>
+  );
+
 const render = () => {
   ReactDOM.render( 
     <Counter value={ store.getState() }
@@ -35,6 +43,24 @@ const render = () => {
 
 store.subscribe(render);
 render();
+
+ let previousState = {
+   visibleTodoFilter: 'SHOW_ALL',
+   todos: [ 
+     {
+       text: 'Read the docs.',
+       complete: false
+     }
+   ]
+ };
+
+let action = {
+   type: 'ADD_TODO',
+   text: 'Understand the flow.'
+ };
+
+let nextState = todoApp(previousState, action)
+
 
 
 
