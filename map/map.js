@@ -188,22 +188,23 @@ var locations = [
             animation: google.maps.Animation.DROP,
             });
         }, i * 150);
-        console.log(infoContent);
-
-        var markerInfo = new google.maps.InfoWindow({
-            content: 'infoContent'
-          });
-
-        //   google.maps.event.addListener(marker, 'click', function() {
-        //     marker.info.open(map, marker);
-        // });
       }
- 
+      function attachMessage(marker, infoContent) {
+        var infowindow = new google.maps.InfoWindow({
+          content: infoContent
+        });
+
+        marker.addListener(marker,'click', function() {
+        //   infowindow.open(marker.get('map'), marker);
+        });
+      }
+   
     function setMarkers() {
       for (i = 0; i < locations.length; i++) {
         var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
         var infoContent = locations[i][0];
         drop(myLatLng,infoContent);
+        attachMessage(marker, infoContent[i]);
       }
     }
     setMarkers();
