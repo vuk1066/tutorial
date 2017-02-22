@@ -179,54 +179,52 @@ var locations = [
     var infowindow = new google.maps.InfoWindow();
     var marker,i;
 
-    function drop(myLatLng,infoContent) {
-        setTimeout(function() {
-          marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            icon: 'icon.png',
-            animation: google.maps.Animation.DROP,
-            });
-        }, i * 150);
-      }
-      function attachMessage(marker, infoContent) {
-        var infowindow = new google.maps.InfoWindow({
-          content: infoContent
-        });
-
-        marker.addListener(marker,'click', function() {
-        //   infowindow.open(marker.get('map'), marker);
-        });
-      }
-   
-    function setMarkers() {
-      for (i = 0; i < locations.length; i++) {
-        var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
-        var infoContent = locations[i][0];
-        drop(myLatLng,infoContent);
-        attachMessage(marker, infoContent[i]);
-      }
+    // function drop(myLatLng) {
+    //     setTimeout(function() {
+    //       marker = new google.maps.Marker({
+    //         position: myLatLng,
+    //         map: map,
+    //         icon: 'icon.png',
+    //         animation: google.maps.Animation.DROP,
+    //         });
+    //     }, i * 150);
+    //    //addInfo(marker, content);
+    // }
+    
+    function addInfo(marker, content){
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(content);
+            infowindow.open(map, marker);
+          };
+        })(marker, i));
     }
-    setMarkers();
+     
+    // function setMarkers() {
+    //   for (i = 0; i < locations.length; i++) {
+    //     var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+    //     var infoContent = locations[i][0];
+    //     drop(myLatLng);
+    //   }
+    // }
+    // setMarkers();
 
- /*   for (i = 0; i < locations.length; i++) {  
+function setMarkers() {
+  for (i = 0; i < locations.length; i++) {
+ 
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
         map: map,
         icon: 'icon.png',
         animation: google.maps.Animation.DROP
       });
+    var content = locations[i][0];
+    addInfo(marker, content);
     }
-        function addInfo(content){
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(content);
-          infowindow.open(map, marker);
-        };
-      })(marker, i));
-      console.log(content);
-    }   
-*/
+}
+setMarkers();
+
+
 map.mapTypes.set('styled_map', styledMapType);
 map.setMapTypeId('styled_map');
 
