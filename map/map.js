@@ -170,103 +170,49 @@ var locations = [
       ['Maroubra Beach', -33.950198, 151.259302, 1]
     ];
 
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-    var marker,i;
-
-    // function drop(myLatLng) {
-    //     setTimeout(function() {
-    //       marker = new google.maps.Marker({
-    //         position: myLatLng,
-    //         map: map,
-    //         icon: 'icon.png',
-    //         animation: google.maps.Animation.DROP,
-    //         });
-    //     }, i * 150);
-    //    //addInfo(marker, content);
-    // }
-    
-    function addInfo(marker, content){
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(content);
-            infowindow.open(map, marker);
-          };
-        })(marker, i));
-    }
-     
-    // function setMarkers() {
-    //   for (i = 0; i < locations.length; i++) {
-    //     var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
-    //     var infoContent = locations[i][0];
-    //     drop(myLatLng);
-    //   }
-    // }
-    // setMarkers();
-
-function setMarkers() {
-  for (i = 0; i < locations.length; i++) {
- 
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map,
-        icon: 'icon.png',
-        animation: google.maps.Animation.DROP
-      });
-    var content = locations[i][0];
-    addInfo(marker, content);
-    }
-}
-setMarkers();
-
-
+var map = new google.maps.Map(document.getElementById('map'), {
+  zoom: 10,
+  center: new google.maps.LatLng(-33.92, 151.25),
+  mapTypeId: google.maps.MapTypeId.ROADMAP
+});
 map.mapTypes.set('styled_map', styledMapType);
 map.setMapTypeId('styled_map');
 
+var infowindow = new google.maps.InfoWindow();
+var marker,i;
 
-// function initMap() {
-// // Create a new StyledMapType object, passing it an array of styles,
-// // and the name to be displayed on the map type control.
+function drop(myLatLng, infoContent) {
+  setTimeout(function() {
+    marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      icon: 'icon.png',
+      animation: google.maps.Animation.DROP,
+      });
+    addInfo(marker,infoContent);
+  }, i * 150);
+}
 
-
-// var json = { 
-// "id":"155747", 
-// "title":"200 Aldersgate", 
-// "URL":"http://www.city.ac.uk/visit/campuses/cass/200-aldersgate", 
-// "latitude":"51.517876", 
-// "longitude":"-0.097722",
-// "id":"38284",
-// "title":"24 Chiswell Street", 
-// "URL":"", "latitude":"51.520714", 
-// "longitude":"-0.089425"
-// }
-
-// var locations = [
-//   {lat: 51.5269,lng: -0.102832},
-//   {lat: 51.5262,lng: -0.109619}
-// ]
-//   var map = new google.maps.Map(document.getElementById('map'), {
-//     zoom: 16,
-//     center: {lat: 51.5269,lng: -0.102832}    
-//   });
-
-//   var marker = new google.maps.Marker({
-//     position:{lat: 51.5269,lng: -0.102832},
-//     map: map,
-//     animation: google.maps.Animation.DROP,
-//   });
-
-//   marker.setMap(map);
-//   //Associate the styled map with the MapTypeId and set it to display.
-//   map.mapTypes.set('styled_map', styledMapType);
-//   map.setMapTypeId('styled_map');
+function addInfo(marker, content){
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent(content);
+        infowindow.open(map, marker);
+      };
+    })(marker, i));
+}
  
-// }
+function setMarkers() {
+  for (i = 0; i < locations.length; i++) {
+    var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+    var infoContent = locations[i][0];
+    drop(myLatLng, infoContent);
+  }
+}
 
-// initMap();
+setMarkers();
+
+
+
+
 
