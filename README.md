@@ -61,3 +61,12 @@ On Windows, use this command:
 10. Install React Router
 $npm install --save react-router
 
+***D3J
+npm install -g browser-sync
+npm install --save-dev browser-sync-webpack-plugin
+npm i browser-sync --save
+modify package.json and webpack.config files
+npm start -> browser sync live on localhost:3000
+had to restart '$webpack --watch' and '$npm start' a couple of times
+
+
