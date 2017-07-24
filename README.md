@@ -61,5 +61,3 @@ On Windows, use this command:
 10. Install React Router
 $npm install --save react-router
 
-11.
-$ npm install reactfire react firebase --save

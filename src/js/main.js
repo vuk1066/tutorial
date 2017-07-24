@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-//import Counter from './components/Counter'
 import Redux from 'redux'
 import { createStore } from 'redux'
 
@@ -44,22 +43,7 @@ const render = () => {
 store.subscribe(render);
 render();
 
- let previousState = {
-   visibleTodoFilter: 'SHOW_ALL',
-   todos: [ 
-     {
-       text: 'Read the docs.',
-       complete: false
-     }
-   ]
- };
 
-let action = {
-   type: 'ADD_TODO',
-   text: 'Understand the flow.'
- };
-
-let nextState = todoApp(previousState, action)
 
 
 
