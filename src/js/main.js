@@ -1,47 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Redux from 'redux'
-import { createStore } from 'redux'
+var linearScale = d3.scaleLinear()
+  .domain([0, 100])  //representing the range of possible values of scores.
+  .range([0, 1])  //output range
+  .clamp(true); 
 
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+console.log(linearScale(-10));  //0
+console.log(linearScale(50));  //0.5
+console.log(linearScale(100));  //1
 
-const counter = (state = 0, action) => { //this is the reducer
-  switch (action.type) {
-    case INCREMENT:
-      return state + 1;
-    case DECREMENT:
-      return state - 1;
-    default:
-      return state;
-  }
-} 
+console.log(linearScale.invert(1)); //100
 
-const store = createStore(counter);
 
-const Counter = ({value, onIncrement, onDecrement}) =>
-  (<div>
-    <h1>{value}</h1>
-    <button onClick={onIncrement}>+</button>
-    <button onClick={onDecrement}>-</button>
-   </div>
-  );
-
-const render = () => {
-  ReactDOM.render( 
-    <Counter value={ store.getState() }
-             onIncrement={() =>
-               store.dispatch({ type: INCREMENT })
-             }
-             onDecrement={() =>
-              store.dispatch({ type: DECREMENT })
-             }/>, 
-  document.getElementById( 'app' ) 
-  );
-};
-
-store.subscribe(render);
-render();
 
 
 

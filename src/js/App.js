@@ -1,15 +1,43 @@
-import React from 'react';
-import { Router, Route, Link, Redirect, browserHistory } from 'react-router';
-import AppRouter from './config/AppRouter';
-import StateTest from './components/test';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Redux from 'redux'
+import { createStore } from 'redux'
 
-const App = () => { 
-  return ( 
-  	<div>
-    <AppRouter />
-    <StateTest />
-    </div>
-  ) 
-}
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
 
-export default App;
+const counter = (state = 0, action) => { //this is the reducer
+  switch (action.type) {
+    case INCREMENT:
+      return state + 1;
+    case DECREMENT:
+      return state - 1;
+    default:
+      return state;
+  }
+} 
+
+const store = createStore(counter);
+
+const Counter = ({value, onIncrement, onDecrement}) =>
+  (<div>
+    <h1>{value}</h1>
+    <button onClick={onIncrement}>+</button>
+    <button onClick={onDecrement}>-</button>
+   </div>
+  );
+
+const render = () => {
+  ReactDOM.render( 
+    <Counter value={ store.getState() }
+             onIncrement={() =>
+               store.dispatch({ type: INCREMENT })
+             }
+             onDecrement={() =>
+              store.dispatch({ type: DECREMENT })
+             }/>, 
+  document.getElementById( 'app' ) 
+  );
+};
+store.subscribe(render);
+export default render;

@@ -66,7 +66,8 @@ npm install -g browser-sync
 npm install --save-dev browser-sync-webpack-plugin
 npm i browser-sync --save
 modify package.json and webpack.config files
+https://www.npmjs.com/package/browser-sync-webpack-plugin
 npm start -> browser sync live on localhost:3000
-had to restart '$webpack --watch' and '$npm start' a couple of times
+had to restart '$webpack --watch' and '$npm start' a couple of times //or double save
 
 
