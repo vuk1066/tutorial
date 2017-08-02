@@ -7,25 +7,17 @@ var scores = [
 ];
 
 var update = d3.select('.chart')
-  .selectAll('div')
-  .data(scores, function (d) {
-  	return d ? d.name : this.innerText;
-  })
-  .style('color', 'blue');
-
-var enter = update.enter()
-  .append('div')
-  .text(function (d) {
-  	return d.name;
-  })
-  .style('color', 'green');
-
-update.exit().remove();
-/*exit selection, which 
-represents items that are already on the DOM, 
-but don't have any corresponding data.*/
-
-update.merge(enter)
-	.style('width', d => d.score + 'px')
-	.attr('class', 'bar');
+  .append('svg')
+    attr('width', 225)
+    attr('height', 300)
+  .selectAll('rect')
+  .data(scores)
+  .enter = update.enter()
+    .append('rect')
+    .attr('y, (d, i') => i * 33)
+    .style('width', d => d.score)
+    .text(function (d) {
+  		return d.name;
+  	})
+    .attr('class', 'bar-svg');
 
