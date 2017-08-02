@@ -1,3 +1,31 @@
 nav {
 	padding-top: 15px;
 }
+
+.red {
+	color: red;
+}
+
+.chart {
+	background-color: #CCC;
+	border: 1px solid black;
+	min-width: 200px;
+	min-height: 250px;
+	margin: 20px;
+	padding: 20px;
+}
+
+.bar {
+  background-color: orange;
+  margin-bottom: 10px;
+  border: dotted 1px blue;
+  padding: 5px;
+}
+
+.bar-svg {
+  fill: orange;
+  margin-bottom: 10px;
+  stroke: blue;
+  stroke-width: 2;
+  padding: 5px;
+}

@@ -1,0 +1,18 @@
+[
+	{
+		"firstname" : "Anett",
+		"surname" : "Soos",
+		"bikes" : 3
+	},
+	{
+		"firstname" : "Bob",
+		"surname" : "Hawk",
+		"bikes" : 1
+
+	},
+	{
+		"firstname" : "Arnie",
+		"surname" : "Puks",
+		"bikes" : 0
+	}
+]
