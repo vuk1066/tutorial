@@ -6,18 +6,24 @@ var scores = [
 	{ name: 'Emily', score: 88 }
 ];
 
-var update = d3.select('.chart')
+var bar = d3.select('.chart')
   .append('svg')
-    attr('width', 225)
-    attr('height', 300)
-  .selectAll('rect')
+    .attr('width', 225)
+    .attr('height', 300)
+  .selectAll('g')
   .data(scores)
-  .enter = update.enter()
-    .append('rect')
-    .attr('y, (d, i') => i * 33)
-    .style('width', d => d.score)
-    .text(function (d) {
-  		return d.name;
-  	})
+  .enter()
+    .append('g')
+    .attr('transform', (d, i) => 'translate(0, ' + i * 33 + ')');
+
+bar.append('rect')
+    .attr('width', d => d.score)
+    .attr('hwight', 40)
     .attr('class', 'bar-svg');
+
+bar.append('text')
+  .attr('y', 20)
+  .text(function (d) {
+    return d.name;
+  });
 
