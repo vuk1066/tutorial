@@ -10,8 +10,6 @@ $ npm install --save-dev babel-core babel-preset-es2015
 $ npm install --save-dev babel-loader
 $ npm install --save jquery babel-polyfill
 $ npm install --save-dev webpack
-
-Webpack did not compile without indtalling it -g
 $ sudo npm install webpack -g
 
 Intstallation faild so I had to delete node-modules folder and reinstall
