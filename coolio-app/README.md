@@ -3,7 +3,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-## coolio-app following: https://blog.hichroma.com/graphql-react-tutorial-part-1-6-d0691af25858
+## coolio-app following: 
+https://blog.hichroma.com/graphql-react-tutorial-part-1-6-d0691af25858
+
+## apollo setup:
+https://dev-blog.apollodata.com/full-stack-react-graphql-tutorial-582ac8d24e3b?_ga=2.39937447.488744830.1503480231-1653301728.1503480231
+
 
 ## Table of Contents
 

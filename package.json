@@ -19,10 +19,12 @@
   },
   "homepage": "https://github.com/vuk1066/tutorial#readme",
   "dependencies": {
+    "@storybook/cli": "^3.2.6",
     "babel-cli": "^6.24.1",
     "babel-polyfill": "^6.13.0",
     "babel-preset-react": "^6.24.1",
     "express": "^4.14.0",
+    "global": "^4.3.2",
     "jquery": "^3.1.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
